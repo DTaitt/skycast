@@ -8,24 +8,6 @@ import CurrentInfo from './components/CurrentInfo.jsx'
 
 class App extends Component {
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     locationLat: null,
-  //     locationLong: null,
-  //   }
-
-  //   this.setLocation = this.setLocation.bind(this);
-  // }
-
-  // setLocation(lat, long) {
-  //   this.setState({
-  //     locationLat: lat,
-  //     locationLong: long,
-  //   })
-  //   console.log(`${this.state.locationLat} from app`)
-  // }
-
   constructor(props) {
     super(props)
     this.state = {
@@ -57,6 +39,14 @@ class App extends Component {
       console.log(this.state.locationLat);
       console.log(this.state.locationLong);
     })
+
+    // fetch(`https://api.darksky.net/forecast/2e84b62444d5d26afa6772ab22665cec/42.3601,-71.0589`)
+    // .then((res) => {
+    //   return res.json();
+    // })
+    // .then((jsonRes) => {
+    //   console.log(jsonRes);
+    // })
   }
 
   handleLocationChange(event) {
@@ -64,6 +54,16 @@ class App extends Component {
       locationValue: event.target.value,
     })
   }
+
+  // fetchCurrentData() {
+  //   fetch(`https://api.darksky.net/forecast/2e84b62444d5d26afa6772ab22665cec/${ this.state.locationLat },${ this.state.locationLong }`)
+  //   .then((res) => {
+  //     return res.json();
+  //   })
+  //   .then((jsonRes) => {
+  //     console.log(jsonRes);
+  //   })
+  // }
 
   render() {
     return (
