@@ -3,6 +3,9 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 
+//import routes
+const locationRoutes = require('./routes/locationRoutes.js');
+
 const app = express();
 
 //set port to listen to
@@ -20,7 +23,9 @@ app.get('/', function(req, res) {
 	res.send('hello world')
 })
 
+app.use('/api/location', locationRoutes);
+
 //error handling
 app.get('*',function(req,res){
-  res.status(404).send({message: 'Opps! Not found.'})
+  res.status(404).send({message: 'Oops! Not found.'})
 })
